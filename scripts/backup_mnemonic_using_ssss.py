@@ -27,3 +27,14 @@ def ssss_decrypt(mnemonic_shares):
 	shares = list(map(mnemonic_to_share, mnemonic_shares))
 	entropy = Shamir.combine(shares)
 	return mnemo.to_mnemonic(entropy)
+
+def backup_mnemonic(mnemonic, minimum, number_of_shares):
+	shares = ssss_encrypt(mnemonic, minimum, number_of_shares)
+	text = list(map(lambda x: x[1], shares))
+	return text
+
+def restore_mnemonic(text):
+	shares = []
+	for i in range(len(text)):
+		shares.append((i + 1, text[i]))
+	return ssss_decrypt(shares)
