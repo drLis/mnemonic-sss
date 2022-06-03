@@ -4,8 +4,7 @@ from mnemonic import Mnemonic
 mnemo = Mnemonic("english")
 
 def main(mnemonic, minimum, number_of_shares):
-	
-	return shares
+	return backup_mnemonic(mnemonic, minimum, number_of_shares)
 
 def ssss_encrypt(mnemonic, minimum, number_of_shares):
 	if (len(mnemonic.split()) > 12):
